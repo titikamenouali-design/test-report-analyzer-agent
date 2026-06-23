@@ -1,30 +1,34 @@
 def calculate_statistics(df):
     """
     Calculate test campaign statistics from a cleaned DataFrame.
-    Expected column:
-    - Result
+    Expected normalized column:
+    - result
     """
 
-    total_requirements = len(df)
+    valid_df = df[df["result"] != "EMPTY"]
 
-    pass_count = (df["Result"] == "PASS").sum()
-    fail_count = (df["Result"] == "FAIL").sum()
+    total_requirements = len(valid_df)
+
+    pass_count = (valid_df["result"] == "PASS").sum()
+    fail_count = (valid_df["result"] == "FAIL").sum()
 
     executed_count = pass_count + fail_count
     not_executed_count = total_requirements - executed_count
+
+    missing_count = (df["result"] == "EMPTY").sum()
 
     if executed_count > 0:
         pass_rate = round((pass_count / executed_count) * 100, 2)
     else:
         pass_rate = 0
 
-    statistics = {
-        "total_requirements": total_requirements,
-        "executed_count": executed_count,
-        "not_executed_count": not_executed_count,
-        "pass_count": pass_count,
-        "fail_count": fail_count,
-        "pass_rate": pass_rate
-    }
-
-    return statistics
+    return {
+        "total_valid_requirements": int(total_requirements),
+        "executed_count": int(executed_count),
+        "not_executed_count": int(not_executed_count),
+        "missing_results_count": int(missing_count),
+        "pass_count": int(pass_count),
+        "fail_count": int(fail_count),
+        "pass_rate": float(pass_rate)
+}
+    
