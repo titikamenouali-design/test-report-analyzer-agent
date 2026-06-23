@@ -13,11 +13,12 @@ AVAILABLE_TOOLS = {
 
 
 def execute_tool(tool_name, **kwargs):
-    """
-    Execute a tool by name.
-    """
 
     if tool_name not in AVAILABLE_TOOLS:
-        raise ValueError(f"Unknown tool: {tool_name}")
+        return {
+            "status": "error",
+            "message": f"Unknown tool: {tool_name}",
+            "available_tools": list(AVAILABLE_TOOLS.keys())
+        }
 
     return AVAILABLE_TOOLS[tool_name](**kwargs)
