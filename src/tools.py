@@ -1,7 +1,11 @@
 from src.load_csv import load_csv
 from src.clean_data import clean_data
 from src.detect_failures import detect_failures
-
+from src.statistics import calculate_statistics
+from src.detect_missing_results import detect_missing_results
+from src.detect_conflicts import detect_conflicts
+from src.generate_report import generate_report
+from src.save_report import save_report
 
 def detect_failures_tool(file_path):
     """
@@ -12,3 +16,31 @@ def detect_failures_tool(file_path):
     df = clean_data(df)
 
     return detect_failures(df)
+
+
+def generate_report_tool(file_path):
+    """
+    End-to-end tool wrapper to generate and save a full test report.
+    """
+
+    df = load_csv(file_path)
+    df = clean_data(df)
+
+    statistics = calculate_statistics(df)
+    failures = detect_failures(df)
+    missing_results = detect_missing_results(df)
+    conflicts = detect_conflicts(df)
+
+    report = generate_report(
+        statistics,
+        failures,
+        missing_results,
+        conflicts
+    )
+
+    saved_file = save_report(report)
+
+    return {
+        "report": report,
+        "saved_file": saved_file
+    }
