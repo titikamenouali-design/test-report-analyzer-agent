@@ -4,6 +4,7 @@ from src.statistics import calculate_statistics
 from src.detect_failures import detect_failures
 from src.detect_missing_results import detect_missing_results
 from src.detect_conflicts import detect_conflicts
+from src.generate_report import generate_report
 
 
 file_path = "data/sample_test_results.csv"
