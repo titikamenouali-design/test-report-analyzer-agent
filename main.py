@@ -6,6 +6,7 @@ from src.detect_missing_results import detect_missing_results
 from src.detect_conflicts import detect_conflicts
 from src.generate_report import generate_report
 from src.save_report import save_report
+from src.tool_router import execute_tool
 
 
 file_path = "data/sample_test_results.csv"
@@ -44,3 +45,12 @@ report_path = save_report(report)
 
 print("\n=== REPORT SAVED ===")
 print(report_path)
+
+print("\n=== TOOL ROUTER TEST ===")
+
+result = execute_tool(
+    "detect_failures",
+    file_path="data/sample_test_results.csv"
+)
+
+print(result)
