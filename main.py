@@ -17,6 +17,16 @@ failures = detect_failures(df)
 missing_results = detect_missing_results(df)
 conflicts = detect_conflicts(df)
 
+report = generate_report(
+    statistics,
+    failures,
+    missing_results,
+    conflicts
+)
+
+print("\n=== REPORT ===")
+print(report)
+
 print("=== STATISTICS ===")
 print(statistics)
 
