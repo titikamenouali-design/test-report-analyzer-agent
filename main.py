@@ -39,3 +39,8 @@ print(missing_results)
 
 print("\n=== CONFLICTS ===")
 print(conflicts)
+
+report_path = save_report(report)
+
+print("\n=== REPORT SAVED ===")
+print(report_path)
