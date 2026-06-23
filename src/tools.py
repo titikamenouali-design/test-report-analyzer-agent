@@ -17,6 +17,15 @@ def detect_failures_tool(file_path):
 
     return detect_failures(df)
 
+def calculate_statistics_tool(file_path):
+    """
+    Tool wrapper for test campaign statistics.
+    """
+
+    df = load_csv(file_path)
+    df = clean_data(df)
+
+    return calculate_statistics(df)
 
 def generate_report_tool(file_path):
     """
