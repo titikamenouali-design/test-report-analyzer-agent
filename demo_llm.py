@@ -1,24 +1,19 @@
-from src.load_csv import load_csv
-from src.clean_data import clean_data
-from src.llm_simulator import simulate_llm_decision
+from src.agent_context import AgentContext
+from src.tool_router import execute_tool
 
 
 def main() -> None:
-    csv_path = "data/test_report.csv"
+    csv_path = "data/sample_test_results.csv"
 
-    raw_data = load_csv(csv_path)
-    clean_rows = clean_data(raw_data)
+    context = AgentContext(csv_path)
+    context.load_data()
 
-    user_question = "Can you detect the failures in this test report?"
-
-    response = simulate_llm_decision(
-        user_question=user_question,
-        data=clean_rows,
+    response = execute_tool(
+        "detect_failures_context",
+        context=context,
     )
 
-    print("\n=== LLM SIMULATOR TEST ===")
-    print(f"User question: {user_question}")
-    print("Response:")
+    print("\n=== CONTEXT TOOL TEST ===")
     print(response)
 
 
