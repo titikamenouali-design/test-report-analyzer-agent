@@ -1,12 +1,14 @@
 from src.tools import (
     detect_failures_tool,
     calculate_statistics_tool,
-    generate_report_tool
+    generate_report_tool,
+    detect_failures_context_tool
 )
 
 
 AVAILABLE_TOOLS = {
     "detect_failures": detect_failures_tool,
+    "detect_failures_context": detect_failures_context_tool,
     "calculate_statistics": calculate_statistics_tool,
     "generate_report": generate_report_tool
 }
