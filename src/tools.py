@@ -53,3 +53,8 @@ def generate_report_tool(file_path):
         "report": report,
         "saved_file": saved_file
     }
+def detect_failures_context_tool(context):
+    """
+    Tool wrapper using an AgentContext instance.
+    """
+    return detect_failures(context.get_data())
