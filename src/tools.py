@@ -58,3 +58,11 @@ def detect_failures_context_tool(context):
     Tool wrapper using an AgentContext instance.
     """
     return detect_failures(context.get_data())
+    
+def calculate_statistics_context_tool(context):
+    """
+    Tool wrapper using an AgentContext instance
+    for statistics calculation.
+    """
+
+    return calculate_statistics(context.get_data())
