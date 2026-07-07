@@ -11,7 +11,8 @@ AVAILABLE_TOOLS = {
     "detect_failures": detect_failures_tool,
     "detect_failures_context": detect_failures_context_tool,
     "calculate_statistics": calculate_statistics_tool,
-    "generate_report": generate_report_tool
+    "generate_report": generate_report_tool,
+    "calculate_statistics_context": calculate_statistics_context_tool,
 }
 
 
