@@ -66,3 +66,14 @@ def calculate_statistics_context_tool(context):
     """
 
     return calculate_statistics(context.get_data())
+
+def detect_missing_results_context_tool(context):
+    return detect_missing_results(context.get_data())
+
+def detect_conflicts_context_tool(context):
+    return detect_conflicts(context.get_data())
+
+def generate_report_context_tool(context):
+    return generate_report(context.get_data())
+
+
