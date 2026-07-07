@@ -24,5 +24,16 @@ def main() -> None:
     print(statistics_response)
 
 
+    missing_response = execute_tool(
+        "detect_missing_results_context",
+        context=context,
+    )
+
+    conflicts_response = execute_tool(
+        "detect_conflicts_context",
+        context=context,
+    )
+
+
 if __name__ == "__main__":
     main()
