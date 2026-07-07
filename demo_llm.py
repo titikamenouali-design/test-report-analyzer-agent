@@ -23,17 +23,21 @@ def main() -> None:
     print("\n=== CALCULATE STATISTICS TEST ===")
     print(statistics_response)
 
-
     missing_response = execute_tool(
         "detect_missing_results_context",
         context=context,
     )
+
+    print("\n=== DETECT MISSING RESULTS TEST ===")
+    print(missing_response)
 
     conflicts_response = execute_tool(
         "detect_conflicts_context",
         context=context,
     )
 
+    print("\n=== DETECT CONFLICTS TEST ===")
+    print(conflicts_response)
 
 if __name__ == "__main__":
     main()
