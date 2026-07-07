@@ -12,6 +12,7 @@ class AgentContext:
     def __init__(self, file_path: str):
         self.file_path = file_path
         self.data = None
+        self.statistics = None
 
     def load_data(self) -> None:
         raw_data = load_csv(self.file_path)
