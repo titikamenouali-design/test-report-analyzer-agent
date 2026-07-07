@@ -13,6 +13,9 @@ AVAILABLE_TOOLS = {
     "calculate_statistics": calculate_statistics_tool,
     "generate_report": generate_report_tool,
     "calculate_statistics_context": calculate_statistics_context_tool,
+    "detect_missing_results_context": detect_missing_results_context_tool,
+    "detect_conflicts_context": detect_conflicts_context_tool,
+    "generate_report_context": generate_report_context_tool,
 }
 
 
