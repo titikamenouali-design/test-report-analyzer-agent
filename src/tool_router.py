@@ -2,7 +2,8 @@ from src.tools import (
     detect_failures_tool,
     calculate_statistics_tool,
     generate_report_tool,
-    detect_failures_context_tool
+    detect_failures_context_tool,
+    calculate_statistics_context_tool,
 )
 
 
